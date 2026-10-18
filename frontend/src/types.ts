@@ -1,0 +1,11 @@
+export interface User { id: string; email: string; full_name: string; role: 'customer' | 'admin'; is_active: boolean; created_at: string }
+export interface Variant { id: string; sku: string; attributes: Record<string, string>; price: number | string; stock_quantity: number; stock_available: number; is_active: boolean }
+export interface Product { id: string; category_id: string; category_name: string; category_slug: string; name: string; slug: string; description: string | null; image_url: string; status: string; min_price: number | string; max_price: number | string; average_rating: number; review_count: number; in_stock: boolean; variants: Variant[]; reviews?: Review[] }
+export interface Review { id: string; rating: number; comment?: string; customer_name?: string; created_at: string }
+export interface Category { id: string; name: string; slug: string; description?: string; product_count?: number }
+export interface Address { id: string; label: string; recipient_name: string; phone: string; address_line: string; city: string; province: string; postal_code: string; is_default: boolean }
+export interface CartItem { id: string; variant_id: string; quantity: number; sku: string; attributes: Record<string, string>; price: number | string; stock_available: number; product: { id: string; name: string; slug: string; image_url: string; status: string }; line_total: number | string }
+export interface Cart { id: string; items: CartItem[]; item_count: number; subtotal: number | string }
+export interface OrderItem { id: string; variant_id: string; product_name: string; sku: string; image_url: string; attributes: Record<string, string>; quantity: number; unit_price: number | string; line_total: number | string }
+export interface Order { id: string; order_number: string; status: string; payment_status: string; subtotal: number | string; discount_amount: number | string; shipping_fee: number | string; total: number | string; coupon_code?: string | null; shipping_method: string; shipping_address: Record<string, string>; tracking_number?: string | null; created_at: string; items: OrderItem[] }
+export interface PageResult<T> { items: T[]; pagination: { page: number; page_size: number; total_items: number; total_pages: number } }

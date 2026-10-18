@@ -1,0 +1,2 @@
+<script setup lang="ts">import { RouterLink } from 'vue-router'; defineProps<{ title: string; description: string; actionText?: string; actionTo?: string }>()</script>
+<template><div class="empty-state"><div class="empty-symbol">✦</div><h3>{{ title }}</h3><p>{{ description }}</p><RouterLink v-if="actionText && actionTo" class="button-primary" :to="actionTo">{{ actionText }}</RouterLink></div></template>

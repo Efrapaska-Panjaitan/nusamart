@@ -1,0 +1,1 @@
+<template><div class="empty-state large-empty"><div class="empty-symbol">404</div><h1>Halaman tidak ditemukan</h1><p>Alamat yang kamu buka tidak tersedia.</p><RouterLink to="/" class="button-primary">Kembali ke beranda</RouterLink></div></template>
